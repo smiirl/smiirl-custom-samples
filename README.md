@@ -3,15 +3,15 @@ Some examples of apis for the custom counter
 
 ### Js / Node
 
-- [generate json](/js)
+- [generate json](/samples/js)
 
 ### PHP
 
-- [generate json](/php/basic_json.php)
-- [push a number](/php/bebhook_push.php)
+- [generate json](/samples/php/basic_json.php)
+- [push a number](/samples/php/bebhook_push.php)
 
 ### python
-- [generate json](/python/basic_json.py)
+- [generate json](/samples/python/basic_json.py)
 
 
 ### Module prestashop
