@@ -8,7 +8,7 @@ Some examples of apis for the custom counter
 ### PHP
 
 - [generate json](/samples/php/basic_json.php)
-- [push a number](/samples/php/bebhook_push.php)
+- [push a number](/samples/php/webhook_push.php)
 
 ### python
 - [generate json](/samples/python/basic_json.py)
