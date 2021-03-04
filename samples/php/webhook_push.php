@@ -1,6 +1,6 @@
 <?php
 
-// change those lines to fit to your device and data
+// change those lines to fit to your device (check it on my.smiirl) and data
 $counterMac = 'e08e3c37e388';
 $counterToken = 'cb8822a2b6ef2b1391aa1ba55c08c5b1';
 $numberToShow = 12345;
