@@ -14,6 +14,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(bytes(json.dumps(data), "utf-8"))
 
 # change 80 to an available port if necessary
-httpd = socketserver.TCPServer(('', 86), Handler)
+httpd = socketserver.TCPServer(('', 80), Handler)
 httpd.serve_forever()
 # check it http://localhost:80/
