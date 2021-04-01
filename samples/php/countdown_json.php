@@ -3,15 +3,14 @@
 /*
 Usage url:
 
-- use a dateTime and a unit:
-https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?dateTime=2042-12-24%2000:00:00&unit=hour
+- use a predefined example:
+https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?example=hoursBeforeNewYearsEve
 
 - use a timeStr and a unit:
 https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?timeStr=this%20sunday%2010PM&unit=hour
 
-- use a predefined example:
-https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?example=hoursBeforeNewYearsEve
-
+-- use a dateTime and a unit: (todo fix it)
+https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?dateTime=2042-12-24%2000:00:00&unit=hour
 
 */
 
@@ -56,7 +55,7 @@ function getExemple($exampleId = 'hoursBeforeNewYearsEve')
             $unit = 'day';
             break;
         case 'MinutesToMidnight':
-            $targetTime = strtotime('last day of december this year');
+            $targetTime = strtotime('tomorrow');
             $unit = 'minute';
             break;
         case 'hoursBeforeNewYearsEve':
@@ -82,7 +81,7 @@ function getMyNumber($params)
             $targetTime = strtotime($params['timeStr']);
         } else {
             if (isset($params['dateTime'])) {
-                $targetTime = DateTime::createFromFormat('Y-m-d H:i:s', $params['dateTime'])->getTimestamp();
+                $targetTime = DateTime::createFromFormat('Y-m-d H:i:s', str_replace('%20', ' ', $params['dateTime']))->getTimestamp();
             } else {
                 $targetTime = strtotime('last day of december this year');
             }
