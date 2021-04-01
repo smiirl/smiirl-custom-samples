@@ -1,8 +1,17 @@
 <?php
 
 /*
-Usage url examples:
+Usage url:
+
+- use a dateTime and a unit:
+https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?dateTime=2042-12-24%2000:00:00&unit=hour
+
+- use a timeStr and a unit:
+https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?timeStr=this%20sunday%2010PM&unit=hour
+
+- use a predefined example:
 https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?example=hoursBeforeNewYearsEve
+
 
 */
 
@@ -43,7 +52,7 @@ function getExemple($exampleId = 'hoursBeforeNewYearsEve')
 {
     switch ($exampleId) {
         case 'daysUntilLaunch':
-            $targetTime = DateTime::createFromFormat('d-m-Y H:i:s', '24-12-2042 00:00:00')->getTimestamp();
+            $targetTime = DateTime::createFromFormat('Y-m-d H:i:s', '2042-12-24 00:00:00')->getTimestamp();
             $unit = 'day';
             break;
         case 'MinutesToMidnight':
@@ -73,7 +82,7 @@ function getMyNumber($params)
             $targetTime = strtotime($params['timeStr']);
         } else {
             if (isset($params['dateTime'])) {
-                $targetTime = DateTime::createFromFormat('d-m-Y H:i:s', $params['dateTime'])->getTimestamp();
+                $targetTime = DateTime::createFromFormat('Y-m-d H:i:s', $params['dateTime'])->getTimestamp();
             } else {
                 $targetTime = strtotime('last day of december this year');
             }
@@ -93,9 +102,8 @@ function getMyNumber($params)
 }
 
 /* param examples */
-// $get = ['example'=>'MinutesToMidnight'];
-// $get = ['timeStr'=>'last day of december this year', 'unit'=>'minute'];
-// $get = ['dateTime'=>'24-12-2042 00:00:00', 'unit'=>'week'];
-// echo json_encode(array('number' => intval(getMyNumber($get))));
+// $_GET = ['example' => 'MinutesToMidnight'];
+// $_GET = ['timeStr' => 'last day of december this year', 'unit' => 'minute'];
+// $_GET = ['dateTime' => '2042-12-24 00:00:00', 'unit' => 'week'];
 
 echo json_encode(array('number' => intval(getMyNumber($_GET))));
