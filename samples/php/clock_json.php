@@ -2,8 +2,14 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-function getMyNumber(){
-    return date('Hi');
+function getMyNumber($separator = null){
+    $format = 'H';
+    if(isset($separator)){
+        $format = $format . "\\" . $separator;
+    }
+    $format = $format . "i";
+    return date($format);
 }
 
-echo json_encode(array('number' => intval(getMyNumber())));
+// replace '0' by null if necessary
+echo json_encode(array('number' => intval(getMyNumber('0'))));
