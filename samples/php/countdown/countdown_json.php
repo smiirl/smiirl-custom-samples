@@ -3,14 +3,7 @@
 /*
 Usage url:
 
-- use a predefined example:
-https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?example=hoursBeforeNewYearsEve
 
-- use a timeStr and a unit:
-https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?timeStr=this%20sunday%2010PM&unit=hour
-
--- use a dateTime and a unit: 
-https://adrien-v.com/smiirl/custom-api-samples/samples/php/countdown_json.php?dateTime=2042-12-24%2000:00:00&unit=hour
 
 */
 

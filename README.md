@@ -8,8 +8,8 @@ Some examples of code for the custom counter
 ### PHP
 
 - [generate json](/samples/php/basic_json.php)
-- [countdown](/samples/php/countdown_json.php)
-- [clock](/samples/php/clock_json.php)
+- [countdown](/samples/php/countdown)
+- [clock](/samples/php/clock)
 - [push a number](/samples/php/webhook_push.php)
 - [roll a dice](/samples/php/dice)
 
@@ -21,3 +21,8 @@ Some examples of code for the custom counter
 
 ### Module prestashop
 https://github.com/smiirl/prestashop-module
+
+
+### Zapier app
+- [Automate synch with zapier](/samples/zapier)
+
