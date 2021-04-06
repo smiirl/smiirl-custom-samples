@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smiirl Dice</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      function rollTheDice(){
+        $.ajax({
+          type:"get",
+          url:"roll.php",
+          cache:false,
+          success: function (html)
+          {
+            console.log(html);
+          }
+        });
+        return false;
+      }
+    </script>
+    <form action="roll.php" method="POST">
+        <input type="submit" value="Roll the dice" onclick="return rollTheDice();"/>
+    </form>
+</body>
+</html>
