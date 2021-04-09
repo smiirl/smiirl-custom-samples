@@ -4,8 +4,9 @@ Some examples of code for the custom counter
 ### Js / Node
 
 - [generate json](/samples/js/basic_json): A simple endpoint to show a chosen number. 
-                                         
+<!---                                
 - [keypad](/samples/js/keypad): update the number with a fun html/js controler.
+-->
 
 ### PHP
 
