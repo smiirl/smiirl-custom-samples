@@ -11,5 +11,5 @@ function getMyNumber($separator = null){
     return date($format);
 }
 
-// replace '0' by null if necessary
-echo json_encode(array('number' => intval(getMyNumber('0'))));
+// replace null by '0' if youy want to add a '0' between hours and minutes
+echo json_encode(array('number' => intval(getMyNumber(null))));

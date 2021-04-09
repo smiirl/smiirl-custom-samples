@@ -1,5 +1,3 @@
-// Requires an installed npm
-// Requires express : npm install express
 
 const express = require('express');
 const app = express();
