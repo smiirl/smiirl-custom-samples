@@ -30,5 +30,5 @@ https://github.com/smiirl/prestashop-module.
  - show it on your counter
 
 ### Zapier app
-- [Automate synch with zapier](/samples/zapier)
+- [Automate synch with zapier](/samples/zapier): Update the number from events in another tool.
 

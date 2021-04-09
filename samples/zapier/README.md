@@ -5,4 +5,4 @@ This example shows how to get a number from zapier and push it to a counter
 - Change your counter to push number node and gets its access informations (id / token) 
 - put these informations into the Smiirl zapp configuration 
 
- 
+ ![alt text](etc/zapier-topols-examples.png?raw=true)
