@@ -1,7 +1,27 @@
-TODO: update the code and document it
 
-```python3 -m pip install requests```
+This example shown the **number or followers** (or total views) **of a youtube channel**.
+- get your `channelId` from youtube.
+- get your `api-key` from https://console.developers.google.com/apis/credentials 
+- Run the `youtube_json.py` to listen your own url "http://xxxx" (code tested on python 3.9)
+- In https://my.smiirl.com:
+    - change your counter to "json" mode and set the url to the previous one. 
+    - choose json attribute to choose what you want to show: 
+        - `suscribers` for the number of suscribers of the channel
+        - `views` for the total number of views of the channel
 
-```python3 -m pip install flask```  
+# Youtube api
+For more details, check the youtube API documentation: 
+https://developers.google.com/youtube/v3/docs/channels.
 
-get your youtube api key (YYY) at https://console.developers.google.com/apis/credentials
+## Data accuracy
+The `total number of views` is precise to one unit.
+
+The `number of followers` is rounded by youtube:
+ - 12,345 ⇒ 12,300
+ - 123,456 ⇒ 123,000
+ - 1,234,456 ⇒ 1,230,000)
+ 
+## Rate limit
+Each API call about channels cost 1 unit and a standard user has 10 000 units per day.
+To avoid rate limit issues, set the "Reactivity" parameter of your counter to at least 10 seconds.
+More details on https://developers.google.com/youtube/v3/determine_quota_cost.
