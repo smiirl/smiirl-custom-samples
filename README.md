@@ -11,8 +11,9 @@ Some examples of code for the custom counter
 ### PHP
 
 - [generate json](/samples/php/basic_json): A simple endpoint to show a chosen number.
-- [countdown](/samples/php/countdown): Count the remaining time until an event. 
-- [clock](/samples/php/clock): Give the time
+- [countdown](/samples/php/countdown): Count the remaining time until an event.
+- [youtube](/samples/php/youtube): shows the number of followers of your youtube channel. 
+- [clock](/samples/php/clock): Give the time.
 - [push a number](/samples/php/basic_push): update a number by an Api call. 
 - [roll a dice](/samples/php/dice): html dice to draw a number at random.
 
@@ -20,9 +21,7 @@ Some examples of code for the custom counter
 ### python
 - [generate json](/samples/python/basic_json): A simple endpoint to show a chosen number.
 - [push a number](/samples/python/basic_push): update a number by an Api call. 
-<!---
-[youtube](/samples/python/youtube): shows the number of followers of your youtube channel]
--->
+
 
 ### Module prestashop
 https://github.com/smiirl/prestashop-module.
