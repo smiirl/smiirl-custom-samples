@@ -14,7 +14,15 @@ This example shown the **number or followers** (or total views) **of a youtube c
 For more details, check the youtube API documentation: 
 https://developers.google.com/youtube/v3/docs/channels.
 
-## Rate Limit
+## Data accuracy
+The `total number of views` is precise to one unit.
+
+The `number of followers` is rounded by youtube:
+ - 12,345 ⇒ 12,300
+ - 123,456 ⇒ 123,000
+ - 1,234,456 ⇒ 1,230,000)
+ 
+## Rate limit
 Each API call about channels cost 1 unit and a standard user has 10 000 units per day.
 To avoid rate limit issues, set the "Reactivity" parameter of your counter to at least 10 seconds.
 More details on https://developers.google.com/youtube/v3/determine_quota_cost.
