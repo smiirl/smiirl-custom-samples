@@ -2,8 +2,6 @@
 
 // change this to match your channel and api key
 // you also should put these credentials in a safer location (for instance in some environment variables)
-$channelId = "UCKHzE6XFtZloTfPDNoI2LiA";
-$apiKey = "AIzaSyDod3x-Rxx21cbQMvuWoltLVi3t6pxrLXQ";
 //$channelId = "UCKHzE6XF__put_your_real_channel_id";
 //$apiKey = "AIzaSyDod3x-Rxx21cbQMvuWoput_your_real_api_key";
 
