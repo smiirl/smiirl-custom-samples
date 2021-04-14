@@ -1,12 +1,14 @@
 
 This example shown the **number or followers** (or total views) **of a youtube channel**.
-- make sure that php-curl is installed and unabled
-- get your api-key from https://console.developers.google.com/apis/credentials 
-- Expose the youtube_json.php to your own url "http://xxxx".
-- In https://my.smiirl.com, change your counter to "json" mode and set the url to the previous one. 
-- In https://my.smiirl.com, choose json attribute (in my.smiirl) to choose what you want to show: 
-  - "number" for the number of suscribers of the channel
-  - "count" for the total number of views of the channel
+- make sure that `php-curl` is installed and unabled
+- get your `channelId` from youtube.
+- get your `api-key` from https://console.developers.google.com/apis/credentials 
+- Expose the `youtube_json.php` to your own url "http://xxxx".
+- In https://my.smiirl.com:
+    - change your counter to "json" mode and set the url to the previous one. 
+    - choose json attribute to choose what you want to show: 
+        - `suscribers` for the number of suscribers of the channel
+        - `views` for the total number of views of the channel
 
 # Youtube api
 For more details, check the youtube API documentation: 
