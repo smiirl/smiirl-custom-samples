@@ -26,8 +26,10 @@ For concrete cases, see [real examples](/samples/JSON_URL_EXAMPLES.md).
 In https://my.smiirl.com:
 - Go to the `Settings` of your counter
 - Change its options to `"PUSH NUMBER"`. 
-- Collect the `CURL Endpoint` of your counter. 
-- Query this url in your code
+- Collect the `CURL Endpoint` of your counter;
+ it should look like 
+```http://api.smiirl.com/YOU_MAC/set-number/YOUR_TOKEN/YOUR_NUMBER``` 
+- Request this url in your code
 - Execute your code.
 
 For concrete cases, see [real examples](/samples/PUSH_NUMBER_EXAMPLES.md).
