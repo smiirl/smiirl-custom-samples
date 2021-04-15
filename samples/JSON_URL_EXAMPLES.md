@@ -2,18 +2,18 @@
 
 ## PHP
 
-- [generate json](/php/basic_json): A simple endpoint to show a chosen number.
-- [countdown](/php/countdown): Count the remaining time until an event.
-- [youtube](/php/youtube): shows the number of subscribers to your youtube channel. 
-- [clock](/php/clock): Give the time.
+- [generate json](/samples/php/basic_json): A simple endpoint to show a chosen number.
+- [countdown](/samples/php/countdown): Count the remaining time until an event.
+- [youtube](/samples/php/youtube): shows the number of subscribers to your youtube channel. 
+- [clock](/samples/php/clock): Give the time.
 
 ## python
-- [generate json](/python/basic_json): A simple endpoint to show a chosen number.
-- [youtube](/python/youtube): shows the number of subscribers to your youtube channel.  
+- [generate json](/samples/python/basic_json): A simple endpoint to show a chosen number.
+- [youtube](/samples/python/youtube): shows the number of subscribers to your youtube channel.  
 
 ## Js / Node
 
-- [generate json](/js/basic_json): A simple endpoint to show a chosen number. 
+- [generate json](/samples/js/basic_json): A simple endpoint to show a chosen number. 
 
 
 ## Module prestashop
