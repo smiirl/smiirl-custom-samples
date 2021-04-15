@@ -13,10 +13,18 @@ First choose the most adapted way for your case and follow the corresponding sec
 ## JSON URL
 The main configuration steps:
 1. Expose your code to your own url "http://xxxx".
+    - Send a response with the 'Content-type' `application/json`
+    - It should contain something like
+    ```json 
+    {
+        'number': 42
+    }
+    ```
+    
 2. In https://my.smiirl.com:
     - Go to the Settings of your counter
     - Change its options to `JSON URL`. 
-    - Set the `url` the one exposed in step 1.
+    - Request (`GET`) the `url` the one exposed in step 1.
     - Eventually choose the attribute you want to show if your json has several ones. 
     - Save your settings
 
