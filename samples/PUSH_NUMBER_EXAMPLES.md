@@ -16,4 +16,3 @@
 
 ## Zapier app
 - [Automate synch with zapier](/samples/zapier): Update the number from events in another tool.
-
