@@ -5,10 +5,13 @@ This example shown the **number or followers** (or total views) **of a youtube c
 - get your `api-key` from https://console.developers.google.com/apis/credentials 
 - Expose the `youtube_json.php` to your own url "http://xxxx".
 - In https://my.smiirl.com:
-    - change your counter to "json" mode and set the url to the previous one. 
-    - choose json attribute to choose what you want to show: 
-        - `suscribers` for the number of suscribers of the channel
+    - Go to the Settings of your counter
+    - Change its options to `JSON URL`. 
+    - Set the url to the one above. 
+    - Choose the attribute you want to show: 
+        - `subscribers` for the number of subscribers of the channel
         - `views` for the total number of views of the channel
+    - Save your settings.    
 
 # Youtube api
 For more details, check the youtube API documentation: 

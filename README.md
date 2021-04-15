@@ -1,35 +1,33 @@
-# Custom Api Samples
-Some examples of code for the custom counter
+# Smiirl Custom Counter Usages
+There are two ways to set a number on a Smiirl custom counter:
+- `JSON URL` 
+- `PUSH NUMBER`.
 
-### Js / Node
+For `JSON URL`, the counter is active and will call an external url at regular time intervals 
+(chosen on the settings of the counter under `REACTIVITY`).
 
-- [generate json](/samples/js/basic_json): A simple endpoint to show a chosen number. 
-<!---                                
-- [keypad](/samples/js/keypad): update the number with a fun html/js controler.
--->
+For `PUSH NUMBER`, the counter is passive and waits external calls to update its number.
 
-### PHP
+First choose the most adapted way for your case and follow the corresponding section.
 
-- [generate json](/samples/php/basic_json): A simple endpoint to show a chosen number.
-- [countdown](/samples/php/countdown): Count the remaining time until an event.
-- [youtube](/samples/php/youtube): shows the number of subscribers to your youtube channel. 
-- [clock](/samples/php/clock): Give the time.
-- [push a number](/samples/php/basic_push): update a number by an Api call. 
-- [roll a dice](/samples/php/dice): html dice to draw a number at random.
+## JSON URL
+The main configuration steps:
+1. Expose your code to your own url "http://xxxx".
+2. In https://my.smiirl.com:
+    - Go to the Settings of your counter
+    - Change its options to `JSON URL`. 
+    - Set the `url` the one exposed in step 1.
+    - Eventually choose the attribute you want to show if your json has several ones. 
+    - Save your settings
 
+For concrete cases, see [real examples](/samples/JSON_URL_EXAMPLES.md).
 
-### python
-- [generate json](/samples/python/basic_json): A simple endpoint to show a chosen number.
-- [youtube](/samples/python/youtube): shows the number of subscribers to your youtube channel. 
-- [push a number](/samples/python/basic_push): update a number by an Api call. 
+## PUSH NUMBER
+In https://my.smiirl.com:
+- Go to the `Settings` of your counter
+- Change its options to `"PUSH NUMBER"`. 
+- Collect the `CURL Endpoint` of your counter. 
+- Query this url in your code
+- Execute your code.
 
-
-### Module prestashop
-https://github.com/smiirl/prestashop-module.
- - choose the time granularity (day, week, mounth, year)
- - choose the kpi you want (countOrders, countProducts, totalSales)
- - show it on your counter
-
-### Zapier app
-- [Automate synch with zapier](/samples/zapier): Update the number from events in another tool.
-
+For concrete cases, see [real examples](/samples/PUSH_NUMBER_EXAMPLES.md).

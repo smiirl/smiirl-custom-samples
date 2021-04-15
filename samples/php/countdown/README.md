@@ -2,10 +2,14 @@
 This example shows a count-down in a counter
 
 # Expose php
-make executable and expose the countdown_json.php to your own url `http://xxxx`.
+Make executable and expose the `countdown_json.php` to your own url `http://xxxx`.
 
 # Choose url
-Change your counter to "json" mode and set the url
+In https://my.smiirl.com:
+- Go to the Settings of your counter
+- Change its options to `JSON URL`. 
+- Set the url to the one above.
+- Save your settings.
 
 ## Predefined example:
 
@@ -14,7 +18,7 @@ possible values:
 - MinutesToMidnight
 - hoursBeforeNewYearsEve
 
-url example for the number of jours befor new year's eve: 
+url example for the number of days before new year's eve: 
 `http://xxxx/countdown_json.php?example=hoursBeforeNewYearsEve`
 
 ## DateTime and Unit
@@ -27,7 +31,7 @@ possible unit values:
 - minute
 - second
 
-url example for the remaining hours before the 25th december at midnight:   
+url example for the remaining hours before the 25th december 2042 at midnight:   
 `https://xxxx/countdown_json.php?dateTime=2042-12-25%2000:00:00&unit=hour` 
 
 ## Time String and Unit
