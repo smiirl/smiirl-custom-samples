@@ -9,5 +9,5 @@ https://nodejs.org/en/download/
 - Requires express: <br/>
 `npm install express`
  
-- Expose the basic_json.js to your own url "http://xxxx".
+- Expose the hello_world.js to your own url "http://xxxx".
 - Change your counter to "json" mode and set the url to the previous one.

@@ -1,4 +1,7 @@
-# Smiirl Custom Counter Usages
+# Smiirl Custom Counter Libraries
+
+## Counter Option
+
 There are two ways to set a number on a Smiirl custom counter:
 - `JSON URL` 
 - `PUSH NUMBER`.
@@ -10,7 +13,7 @@ For `PUSH NUMBER`, the counter is passive and waits external calls to update its
 
 First choose the most adapted way for your case and follow the corresponding section.
 
-## JSON URL
+### JSON URL
 The main configuration steps:
 1. Expose your code to your own url "http://xxxx".
     - Send a response with the 'Content-type' `application/json`
@@ -28,10 +31,8 @@ The main configuration steps:
     - Eventually choose the attribute you want to show if your json has several ones.
     - Eventually customize the polling interval (reactivity) .
     - Save your settings.
-
-For concrete cases, see [real examples](/samples/JSON_URL_EXAMPLES.md).
-
-## PUSH NUMBER
+    
+### PUSH NUMBER
 In https://my.smiirl.com:
 - Go to the `Settings` of your counter.
 - Change its options to `"PUSH NUMBER"`. 
@@ -41,4 +42,11 @@ In https://my.smiirl.com:
 - Request this url in your code (`GET`)
 - Execute your code.
 
-For concrete cases, see [real examples](/samples/PUSH_NUMBER_EXAMPLES.md).
+## Packages
+A few helpers are provided:
+- [PHP](src/php)
+- [Node](https://www.npmjs.com/package/@smiirl/smiirl-library)  
+
+## Concrete Examples
+- [`JSON URL`](/samples/JSON_URL_EXAMPLES.md)
+- [`JPUSH NUMBER`](/samples/PUSH_NUMBER_EXAMPLES.md).
