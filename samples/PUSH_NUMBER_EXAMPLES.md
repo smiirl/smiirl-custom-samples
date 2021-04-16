@@ -3,14 +3,16 @@
 
 ## PHP
 
-- [push a number](/samples/php/basic_push): update a number by an Api call. 
+- [basic push](/samples/php/basic_push): update a number by an API call. 
 - [roll a dice](/samples/php/dice): html dice to draw a number at random.
 
 
 ## python
-- [push a number](/samples/python/basic_push): update a number by an Api call. 
+- [basic push](/samples/python/basic_push): update a number by an API call. 
 
 ## Js / Node                                
+- [smiirl-library](https://www.npmjs.com/package/@smiirl/smiirl-library): 
+a node package to push a number
 - [keypad](/samples/js/keypad): update the number with a fun html/js controler.
 
 
