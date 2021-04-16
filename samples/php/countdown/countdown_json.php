@@ -1,14 +1,6 @@
 <?php
 
-/*
-Usage url:
-
-
-
-*/
-
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+require_once("../../../src/php/SmiirlLibrary.php");
 
 /**
  * @param $difference
@@ -70,11 +62,11 @@ function getMyNumber($params)
         list($targetTime, $unit) = getExemple($params['example']);
     } else {
         if (isset($params['timeStr'])) {
-
             $targetTime = strtotime($params['timeStr']);
         } else {
             if (isset($params['dateTime'])) {
-                $targetTime = DateTime::createFromFormat('Y-m-d H:i:s', str_replace('%20', ' ', $params['dateTime']))->getTimestamp();
+                $targetTime = DateTime::createFromFormat('Y-m-d H:i:s',
+                    str_replace('%20', ' ', $params['dateTime']))->getTimestamp();
             } else {
                 $targetTime = strtotime('last day of december this year');
             }
@@ -98,4 +90,5 @@ function getMyNumber($params)
 // $_GET = ['timeStr' => 'last day of december this year', 'unit' => 'minute'];
 // $_GET = ['dateTime' => '2042-12-24 00:00:00', 'unit' => 'week'];
 
-echo json_encode(array('number' => intval(getMyNumber($_GET))));
+$smiirlLib = new SmiirlLibraryPhp();
+$smiirlLib->jsonUrl(getMyNumber($_GET));
