@@ -1,0 +1,16 @@
+{
+    "name": "smiirl/smiirl-sdk-sample-hello-world",
+    "description": "Basic usage of the smiirl-sdk-php library",
+    "type": "library",
+    "require": {
+        "smiirl/smiirl-sdk-php": "dev-main"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrien Vieilleribiere",
+            "email": "adrien@smiirl.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
