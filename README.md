@@ -20,7 +20,7 @@ The main configuration steps:
     - It should contain something like
     ```json 
     {
-        'number': 42
+        "number": 42
     }
     ```
     
