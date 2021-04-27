@@ -1,6 +1,10 @@
 <?php
 
-require_once("../../../src/php/SmiirlLibrary.php");
+// Require the Composer autoloader.
+require 'vendor/autoload.php';
+
+use Smiirl\Counter;
+
 
 /**
  * @param $difference
@@ -90,5 +94,6 @@ function getMyNumber($params)
 // $_GET = ['timeStr' => 'last day of december this year', 'unit' => 'minute'];
 // $_GET = ['dateTime' => '2042-12-24 00:00:00', 'unit' => 'week'];
 
-$smiirlLib = new SmiirlLibraryPhp();
-$smiirlLib->jsonUrl(getMyNumber($_GET));
+
+$counter = new Counter();
+$counter->jsonResponse(getMyNumber($_GET));

@@ -1,0 +1,16 @@
+{
+    "name": "smiirl/smiirl-library-sample-hello-world",
+    "description": "Basic usage of the smiirl-library-php library",
+    "type": "library",
+    "require": {
+        "smiirl/smiirl-library-php": "dev-main"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrien Vieilleribiere",
+            "email": "adrien@smiirl.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

@@ -1,6 +1,6 @@
 # Exemples With "JSON URL"
 
-## PHP
+## PHP / Composer
 
 - [hello word](/samples/php/hello_world_json): A simple endpoint to show a fixed number.
 - [countdown](/samples/php/countdown): Count the remaining time until an event.

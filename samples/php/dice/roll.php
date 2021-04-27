@@ -1,12 +1,15 @@
 <?php
 
-require_once("../../../src/php/SmiirlLibrary.php");
-$smiirlLib = new SmiirlLibraryPhp();
+// Require the Composer autoloader.
+require 'vendor/autoload.php';
 
-// get the real parameters of your counter on https://my.smiirl.com
-$counterCurlUrl = "http://api.smiirl.com/YOUR_COUNTER_MAC/set-number/YOUR_COUNTER_TOKEN/54321";
+use Smiirl\Counter;
 
-list($counterMac, $counterToken) = $smiirlLib->listCurlUrlAccessParameters($counterCurlUrl);
+// set the real values from https://my.smiirl.com
+$mac = "e08e3c39c9b4";
+$token = "97cbc24fe27233cd746ffb09a45f3754";
+$counter = new Counter($mac, $token);
+
 $randomNumber = rand(1,9999999);
-$smiirlLib->pushNumberOnCounter($counterMac, $counterToken, $randomNumber);
+$counter->push($randomNumber);
 

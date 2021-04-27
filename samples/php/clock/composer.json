@@ -1,0 +1,16 @@
+{
+    "name": "smiirl/smiirl-library-sample-clock",
+    "description": "A simple usage of the smiirl-library-php library to display a clock",
+    "type": "project",
+    "require": {
+        "smiirl/smiirl-library-php": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrien Vieilleribiere",
+            "email": "adrien@smiirl.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

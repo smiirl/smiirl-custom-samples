@@ -1,6 +1,8 @@
 
 This example puts a random number in a counter
-- Make sure that `php-curl` is installed and enabled
+- ```
+  composer install
+  ```
 - In https://my.smiirl.com:
     - Go to the `Settings` of your counter
     - Change its options to `"PUSH NUMBER"`. 

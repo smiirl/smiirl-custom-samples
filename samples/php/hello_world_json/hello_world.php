@@ -1,6 +1,10 @@
 <?php
 
-require_once("../../../src/php/SmiirlLibrary.php");
+// Require the Composer autoloader.
+require 'vendor/autoload.php';
 
-$smiirlLib = new SmiirlLibraryPhp();
-$smiirlLib->jsonUrl(12345);
+use Smiirl\Counter;
+
+// Instantiate an sdk.
+$counter = new Counter();
+$counter->jsonResponse(12345);
