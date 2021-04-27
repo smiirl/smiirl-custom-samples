@@ -4,8 +4,6 @@
 // you also should put these credentials in a safer location (for instance in some environment variables)
 $channelId = "UCKHzE6XF__put_your_real_channel_id";
 $apiKey = "AIzaSyDod3x-Rxx21cbQMvuWoput_your_real_api_key";
-$channelId = "UCKHzE6XFtZloTfPDNoI2LiA";
-$apiKey = "AIzaSyDod3x-Rxx21cbQMvuWoltLVi3t6pxrLXQ";
 
 $urlToGet = "https://www.googleapis.com/youtube/v3/channels?id=" . $channelId . "&key=" . $apiKey . "&part=statistics";
 $ch = curl_init();
