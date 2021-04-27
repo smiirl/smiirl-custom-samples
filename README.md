@@ -43,10 +43,16 @@ In https://my.smiirl.com:
 - Execute your code.
 
 ## Packages
-A few helpers are provided:
-- [PHP](src/php)
-- [Node](https://www.npmjs.com/package/@smiirl/smiirl-library)  
+Some packages can help you to build your own case faster.
+#### PHP + Composer
+[https://packagist.org/packages/smiirl/smiirl-sdk-php](https://packagist.org/packages/smiirl/smiirl-sdk-php)
+
+#### Node + Npm
+[https://www.npmjs.com/package/@smiirl/smiirl-library](https://www.npmjs.com/package/@smiirl/smiirl-library)  
+
+#### Module prestashop
+https://github.com/smiirl/prestashop-module.
 
 ## Concrete Examples
 - [`JSON URL`](/samples/JSON_URL_EXAMPLES.md)
-- [`JPUSH NUMBER`](/samples/PUSH_NUMBER_EXAMPLES.md).
+- [`JPUSH NUMBER`](/samples/PUSH_NUMBER_EXAMPLES.md)
