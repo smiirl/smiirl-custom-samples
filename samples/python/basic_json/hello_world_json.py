@@ -1,10 +1,14 @@
 # tested on python 3.9
-import http.server
-import socketserver
-import json
-from http import HTTPStatus
 
-class Handler(http.server.SimpleHTTPRequestHandler):
+import json
+import socketserver
+from http import HTTPStatus, server
+
+server_adress = "0.0.0.0"
+server_port = 8080
+
+
+class Handler(server.BaseHTTPRequestHandler):
     def do_GET(self):
         data = {
             "number": 54321
@@ -14,7 +18,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes(json.dumps(data), "utf-8"))
 
-# change 80 to an available port if necessary
-httpd = socketserver.TCPServer(('', 80), Handler)
-httpd.serve_forever()
-# check it http://localhost:80/
+
+try:
+    with socketserver.TCPServer((server_adress, server_port), Handler) as httpd:
+        print(f"check it http://{server_adress}:{server_port}/")
+        httpd.serve_forever()
+except KeyboardInterrupt:
+    pass
