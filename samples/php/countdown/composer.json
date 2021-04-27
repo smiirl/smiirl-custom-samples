@@ -1,9 +1,9 @@
 {
-    "name": "smiirl/smiirl-sdk-sample-hello-world",
-    "description": "Basic usage of the smiirl-sdk-php library",
-    "type": "library",
+    "name": "smiirl/smiirl-library-sample-clock",
+    "description": "A usage of the smiirl-library-php library to display a countdown",
+    "type": "project",
     "require": {
-        "smiirl/smiirl-sdk-php": "dev-main"
+        "smiirl/smiirl-library-php": "*"
     },
     "license": "MIT",
     "authors": [

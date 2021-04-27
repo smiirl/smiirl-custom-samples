@@ -1,7 +1,9 @@
 <?php
 
-require_once("../../../src/php/SmiirlLibrary.php");
-$smiirlLib = new SmiirlLibraryPhp();
+// Require the Composer autoloader.
+require 'vendor/autoload.php';
+
+use Smiirl\Counter;
 
 function getMyHour($separator = null){
     $format = 'H';
@@ -12,4 +14,8 @@ function getMyHour($separator = null){
     return date($format);
 }
 
-$smiirlLib->jsonUrl(getMyHour(null));
+$counter = new Counter();
+$counter->jsonResponse(getMyHour(null));
+
+
+

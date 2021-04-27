@@ -1,7 +1,11 @@
 
 This example shows a count-down in a counter
 
+```
+composer install
+```
 # Expose php
+
 Make executable and expose the `countdown_json.php` to your own url `http://xxxx`.
 
 # Choose url

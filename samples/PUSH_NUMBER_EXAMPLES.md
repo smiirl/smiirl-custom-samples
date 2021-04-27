@@ -3,8 +3,9 @@
 
 ## PHP
 
-- [basic push](/samples/php/basic_push): update a number by an API call. 
-- [roll a dice](/samples/php/dice): html dice to display a number at random.
+- [smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php) 
+a composer package to interract with Smiirl Objects
+- [roll a dice](/samples/php/dice): html dice to display a number at random using the previous library.
 
 
 ## python

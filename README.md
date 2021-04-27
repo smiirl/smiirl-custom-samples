@@ -45,13 +45,13 @@ In https://my.smiirl.com:
 ## Packages
 Some packages can help you to build your own case faster.
 #### PHP + Composer
-[https://packagist.org/packages/smiirl/smiirl-sdk-php](https://packagist.org/packages/smiirl/smiirl-sdk-php)
+[https://packagist.org/packages/smiirl/smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php)
 
 #### Node + Npm
 [https://www.npmjs.com/package/@smiirl/smiirl-library](https://www.npmjs.com/package/@smiirl/smiirl-library)  
 
 #### Module prestashop
-https://github.com/smiirl/prestashop-module.
+[https://github.com/smiirl/prestashop-module](https://github.com/smiirl/prestashop-module)
 
 ## Concrete Examples
 - [`JSON URL`](/samples/JSON_URL_EXAMPLES.md)
