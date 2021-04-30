@@ -48,7 +48,7 @@ Some packages can help you to build your own case faster.
 [https://packagist.org/packages/smiirl/smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php)
 
 #### Node + Npm
-[https://www.npmjs.com/package/@smiirl/smiirl-library](https://www.npmjs.com/package/@smiirl/smiirl-library)  
+[https://www.npmjs.com/package/@smiirl/smiirl-library-js](https://www.npmjs.com/package/@smiirl/smiirl-library-js)  
 
 #### Module prestashop
 [https://github.com/smiirl/prestashop-module](https://github.com/smiirl/prestashop-module)
