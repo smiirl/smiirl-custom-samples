@@ -1,5 +1,5 @@
 
-This example shown the **number or followers** (or total views) **of a youtube channel**.
+This example shows the **number or followers** (or total views) **of a youtube channel**.
 - get your `channelId` from youtube.
 - get your `api-key` from https://console.developers.google.com/apis/credentials 
 - Run the `youtube_json.py` to listen your own url "http://xxxx" (code tested on python 3.9)

@@ -1,6 +1,6 @@
 # tested on python 3.9
 
-import urllib, json
+import json
 import urllib.request
 
 # change those lines to fit to your device (check it on https://my.smiirl.com) and your data
