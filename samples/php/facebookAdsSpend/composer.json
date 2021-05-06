@@ -1,0 +1,16 @@
+{
+    "name": "smiirl/smiirl-library-sample-facebook-spend",
+    "description": "Sum facebook account spends",
+    "type": "project",
+    "require": {
+        "smiirl/smiirl-library-php": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrien Vieilleribiere",
+            "email": "adrien@smiirl.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
