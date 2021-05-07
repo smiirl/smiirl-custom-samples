@@ -13,8 +13,7 @@
 - [youtube](/samples/python/youtube): shows the number of subscribers to your youtube channel.  
 
 ## Js / Node
-
-- [hello word](/samples/js/hello_world): A simple endpoint to show a fixed number. 
+- [clock](/samples/js/clock): Give the time. 
 
 
 ## Module prestashop
