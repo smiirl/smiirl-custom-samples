@@ -6,6 +6,7 @@
 - [countdown](/samples/php/countdown): Count the remaining time until an event.
 - [youtube](/samples/php/youtube): shows the number of subscribers to your youtube channel. 
 - [clock](/samples/php/clock): Give the time.
+- [facebook spend](/samples/php/facebookAdsSpend): global spend from several facebook ads accounts.
 
 ## python
 - [hello word](/samples/python/hello_world): A simple endpoint to show a fixed number.
