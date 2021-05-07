@@ -1,5 +1,17 @@
 # Smiirl Custom Counter Libraries
 
+## Packages
+Some packages can help you to build your own case faster.
+#### PHP + Composer
+[https://packagist.org/packages/smiirl/smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php)
+
+#### Node + Npm
+[https://www.npmjs.com/package/@smiirl/smiirl-library-js](https://www.npmjs.com/package/@smiirl/smiirl-library-js)  
+
+#### Module prestashop
+[https://github.com/smiirl/prestashop-module](https://github.com/smiirl/prestashop-module)
+
+
 ## Counter Option
 
 There are two ways to set a number on a Smiirl custom counter:
@@ -42,16 +54,6 @@ In https://my.smiirl.com:
 - Request this url in your code (`GET`)
 - Execute your code.
 
-## Packages
-Some packages can help you to build your own case faster.
-#### PHP + Composer
-[https://packagist.org/packages/smiirl/smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php)
-
-#### Node + Npm
-[https://www.npmjs.com/package/@smiirl/smiirl-library-js](https://www.npmjs.com/package/@smiirl/smiirl-library-js)  
-
-#### Module prestashop
-[https://github.com/smiirl/prestashop-module](https://github.com/smiirl/prestashop-module)
 
 ## Concrete Examples
 - [`JSON URL`](/samples/JSON_URL_EXAMPLES.md)
