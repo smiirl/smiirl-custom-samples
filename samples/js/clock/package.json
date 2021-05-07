@@ -1,0 +1,15 @@
+{
+  "name": "clock_json",
+  "version": "1.0.0",
+  "description": "Expose a json clock on a port",
+  "main": "clock.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@smiirl/smiirl-library-js": "github:smiirl/smiirl-library-js",
+    "express": "^4.17.1"
+  }
+}
