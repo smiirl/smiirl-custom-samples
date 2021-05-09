@@ -1,0 +1,16 @@
+{
+    "name": "smiirl/smiirl-library-sample-clock",
+    "description": "How many school days before the summer's holidays (with smiirl-library-php)",
+    "type": "project",
+    "require": {
+        "smiirl/smiirl-library-php": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrien Vieilleribiere",
+            "email": "adrien@smiirl.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
