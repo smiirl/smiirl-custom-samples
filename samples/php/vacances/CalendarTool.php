@@ -4,8 +4,8 @@ Class CalendarTool
 {
 
     const HOLIDAYS = [
-        /*["2021-06-01", "2021-06-02"],
-        ["2021-09-02", "2021-09-16"]*/
+        ["2021-05-13", "2021-05-14"], // pont de l'ascension
+        ["2021-06-28", "2021-06-29"], // mariage adélia
     ];
 
     /**
@@ -43,7 +43,11 @@ Class CalendarTool
         }
         $dateOnly = $dateTime->format("Y-m-d");
         $joursFeries = $this->jours_feries($dateTime->format('Y'));
+        //var_dump($joursFeries);
+        //var_dump($dateOnly);
+        //var_dump(in_array($dateOnly, array_values($joursFeries)));
         if (in_array($dateOnly, $joursFeries)) {
+            //var_dump("ferié ****************************");
             return false;
         }
         if ($this->isHoliday($dateTime)) {
@@ -62,8 +66,8 @@ Class CalendarTool
                 $start = DateTime::createFromFormat('Y-m-d H:i:s',
                     $startStr . ' 00:00:00')->getTimestamp();
                 $end = DateTime::createFromFormat('Y-m-d H:i:s',
-                    $endStr . ' 00:00:00')->getTimestamp();
-                if ($start <= $dateTimestamp && $dateTimestamp < $end) {
+                    $endStr . ' 23:59:59')->getTimestamp();
+                if (($start <= $dateTimestamp) && ($dateTimestamp < $end)) {
                     return true;
                 }
             }
@@ -92,13 +96,13 @@ Class CalendarTool
     public function jeudi_ascension($annee)
     {
         $dimanche_paques = $this->dimanche_paques($annee);
-        return date("Y-m-d", strtotime("$dimanche_paques +39 day"));
+        return date("Y-m-d", strtotime("$dimanche_paques +40 day"));
     }
 
     public function lundi_pentecote($annee)
     {
         $dimanche_paques = $this->dimanche_paques($annee);
-        return date("Y-m-d", strtotime("$dimanche_paques +50 day"));
+        return date("Y-m-d", strtotime("$dimanche_paques +51 day"));
     }
 
     public function jours_feries($annee, $alsacemoselle = false)
