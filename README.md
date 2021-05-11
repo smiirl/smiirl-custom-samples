@@ -19,12 +19,10 @@ Please email us to partnership@smiirl.com for any request, we would love to hear
 ## Packages
 To get started, you may want to install the following packages. They help you transfer your data to the Couner with 1 line of code. 
 #### PHP + Composer
-We have it in PHP
-[https://packagist.org/packages/smiirl/smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php)
+We have it in PHP: [https://packagist.org/packages/smiirl/smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php)
 
 #### Node + Npm
-And in JavaScript
-[https://www.npmjs.com/package/@smiirl/smiirl-library-js](https://www.npmjs.com/package/@smiirl/smiirl-library-js)  
+And in JavaScript: [https://www.npmjs.com/package/@smiirl/smiirl-library-js](https://www.npmjs.com/package/@smiirl/smiirl-library-js)  
 
 #### Prestashop module
 You can install it in your Prestashop back office to display your sales data in real time without writing a single line of code. No shit.
