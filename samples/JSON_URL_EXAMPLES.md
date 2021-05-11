@@ -1,22 +1,24 @@
-# Examples With "JSON URL"
+# Examples of projects using "JSON URL" 
 
-## PHP / Composer
+## Basic examples
 
-- [hello word](/samples/php/hello_world_json): A simple endpoint to show a fixed number.
-- [countdown](/samples/php/countdown): Count the remaining time until an event.
-- [youtube](/samples/php/youtube): shows the number of subscribers to your youtube channel. 
-- [clock](/samples/php/clock): Give the time.
-- [facebook spend](/samples/php/facebookAdsSpend): global spend from several facebook ads accounts.
-
-## python
-- [hello word](/samples/python/hello_world): A simple endpoint to show a fixed number.
-- [youtube](/samples/python/youtube): shows the number of subscribers to your youtube channel.  
-
-## Js / Node
-- [clock](/samples/js/clock): Give the time. 
+- [Hello World](/samples/php/hello_world_json), in PHP: a simple endpoint to show a fixed number.
+- [Hello World](/samples/python/hello_world), the same in Python.
+- [Countdown](/samples/php/countdown), in PHP: get your Counter to count the remaining time until an event.
+- [Clock](/samples/php/clock), in PHP: your Counter acts as a clock.
+- [Clock](/samples/js/clock), the same in JavaScript.
 
 
-## Module prestashop
+## Actual services (i.e. more exciting real life applications 💡 )
+
+### PHP / Composer
+- [YouTube](/samples/php/youtube), in PHP: show the number of subscribers or video views on your YouTube channel. 
+- [YouTube](/samples/python/youtube), same use case in Python.
+- [Facebook Ads Spend](/samples/php/facebookAdsSpend), in PHP: display total spend from several Facebook Ads accounts.
+
+
+## Prestashop module
+Install this module in your Prestashop back office to display your sales data in real time without writing a single line of code.
 https://github.com/smiirl/prestashop-module.
  - choose the time granularity (day, week, mounth, year)
  - choose the kpi you want (countOrders, countProducts, totalSales)
