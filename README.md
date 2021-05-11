@@ -1,5 +1,8 @@
 # Smiirl Custom Counter Libraries
 
+![alt text](./custom-counter-7D-packshot-front-2.jpeg?raw=true)
+
+
 ## Packages
 Some packages can help you to build your own case faster.
 #### PHP + Composer
