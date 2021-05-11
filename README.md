@@ -29,22 +29,22 @@ You can install it in your Prestashop back office to display your sales data in 
 [https://github.com/smiirl/prestashop-module](https://github.com/smiirl/prestashop-module)
 
 
-## Counter Option
+## Counter Connection Options
 
-There are two ways to connect a number to a Smiirl custom counter:
+There are 2 ways to connect a number to a Smiirl Custom Counter:
 - `JSON URL` 
 - `PUSH NUMBER`.
 
 For `JSON URL`, the counter is active and will call an external url at regular time intervals 
 (chosen on the settings of the counter under `REACTIVITY`).
 
-For `PUSH NUMBER`, the counter is passive and waits external calls to update its number.
+For `PUSH NUMBER`, the counter is passive and waits for external calls to update its number.
 
-First choose the most adapted way for your case and follow the corresponding section.
+First choose the most adapted way for your application and follow the corresponding section.
 
 ### JSON URL
 The main configuration steps:
-1. Expose your code to your own url "http://xxxx".
+1. Host your code on your server under your own url "http://mycounterproject.mybusiness.com".
     - Send a response with the 'Content-type' `application/json`
     - It should contain something like
     ```json 
@@ -57,8 +57,8 @@ The main configuration steps:
     - Go to the Settings of your counter.
     - Change its options to `JSON URL`. 
     - Set the `url` with the one exposed in step 1.
-    - Eventually choose the attribute you want to show if your json has several ones.
-    - Eventually customize the polling interval (reactivity) .
+    - If applicable, choose the attribute you want to show if your json has several ones.
+    - If applicable, customize the polling interval (reactivity).
     - Save your settings.
     
 ### PUSH NUMBER
@@ -68,10 +68,11 @@ In https://my.smiirl.com:
 - Collect the `CURL Endpoint` of your counter;
  it should look like 
 ```http://api.smiirl.com/YOU_MAC/set-number/YOUR_TOKEN/YOUR_NUMBER```. 
-- Request this url in your code (`GET`)
+- Request this url in your code (`GET`).
 - Execute your code.
 
 
 ## Concrete Examples
+Click the sections below to review the code for simple and more real-life projects 🤓
 - [`JSON URL`](/samples/JSON_URL_EXAMPLES.md)
 - [`JPUSH NUMBER`](/samples/PUSH_NUMBER_EXAMPLES.md)
