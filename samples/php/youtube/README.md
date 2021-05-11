@@ -1,11 +1,14 @@
+A Custom Counter connected to YouTube is must-have tool for any YouTuber! 
+The code presented here allows you to display the **number or followers** or **total video views** on a YouTube channel.
+[Add YouTube Counter photo]
 
-This example shown the **number or followers** (or total views) **of a youtube channel**.
+## Get started
 ```
   composer install
   ```
-- get your `channelId` from youtube.
-- get your `api-key` from https://console.developers.google.com/apis/credentials 
-- Expose the `youtube_json.php` to your own url "http://xxxx".
+- Get your `channelId` from YouTube.
+- Get your `api-key` from https://console.developers.google.com/apis/credentials 
+- Host the `youtube_json.php` file on your server under your own url "http://youtubecounter.mybusiness.com". 
 - In https://my.smiirl.com:
     - Go to the Settings of your counter
     - Change its options to `JSON URL`. 
