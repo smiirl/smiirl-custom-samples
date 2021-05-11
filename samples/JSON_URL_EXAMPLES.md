@@ -1,4 +1,4 @@
-# Exemples With "JSON URL"
+# Examples With "JSON URL"
 
 ## PHP / Composer
 
