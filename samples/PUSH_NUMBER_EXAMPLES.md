@@ -2,10 +2,8 @@
 # Examples of projects using "PUSH NUMBER"
 
 ## Packages
-- [smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php) 
-a composer package to interact with Smiirl Objects
-- [smiirl-library](https://www.npmjs.com/package/@smiirl/smiirl-library-js): 
-a node package to push a number.
+- [smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php): a composer package to interact with Smiirl Objects
+- [smiirl-library](https://www.npmjs.com/package/@smiirl/smiirl-library-js): a node package to push a number.
 
 ## Basic examples
 - [Basic push](/samples/python/basic_push), in Python: update a number by an API call. 
