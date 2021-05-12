@@ -1,10 +1,10 @@
 
-This example pushes a fixed number in a counter
+This example pushes a fixed number to a Custom Counter
 - In https://my.smiirl.com:
-    - Go to the `Settings` of your counter
+    - Go to the `Settings` of your counter.
     - Change its options to `"PUSH NUMBER"`. 
     - Get the access informations (id / token) of your counter in `CURL Endpoint` 
-- Put these informations in `webhook_push.py` and make it executable
+- Put these informations in `webhook_push.py` and make it executable.
 - Execute it:
 ```
 python webhook_push.py
