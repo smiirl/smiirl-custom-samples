@@ -1,23 +1,18 @@
 
-# Examples with "PUSH NUMBER"
+# Examples of projects using "PUSH NUMBER"
 
-## PHP
-
+## Packages
 - [smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php) 
-a composer package to interract with Smiirl Objects
-- [roll a dice](/samples/php/dice): html dice to display a number at random using the previous library.
-
-
-## python
-- [basic push](/samples/python/basic_push): update a number by an API call. 
-
-## Js / Node                                
+a composer package to interact with Smiirl Objects
 - [smiirl-library](https://www.npmjs.com/package/@smiirl/smiirl-library-js): 
 a node package to push a number.
 
+## Basic examples
+- [Basic push](/samples/python/basic_push), in Python: update a number by an API call. 
+- [Roll a dice](/samples/php/dice), in PHP: HTML dice to display a number at random using the Smiirl PHP library.
 
-## PHP/Js
-- [https://github.com/blephy/custom-smiirl-counter-api](https://github.com/blephy/custom-smiirl-counter-api): control the number with a nice html/js keypad.
+## Keypad controller
+- [https://github.com/blephy/custom-smiirl-counter-api](https://github.com/blephy/custom-smiirl-counter-api), in PHP & JS: unofficial but awesome application to control the number with a sweet HTML/JS keypad.
 
-## Zapier app
-- [Automate synch with zapier](/samples/zapier): Update the number from events in another tool.
+## Connect any app with Zapier
+- [Automate synch with zapier](/samples/zapier): update the number from events in another tool.
