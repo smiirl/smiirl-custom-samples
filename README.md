@@ -5,12 +5,16 @@ Welcome to the Smiirl Custom Counter official documentation 🥁
 
 In case you missed it: this incredible piece of hardware can display any figure in real time! It's a great way to stay connected to the figures that matter most to you or your business.
 
-The Counter can display any data parsed into a JSON webpage. It therefore requires a bit of technical know-how. The objective of this repo is to help developers understand the ins and outs of connecting your data to a Custom Counter. We feature explanations and real-life code for use cases with services such as YouTube or Facebook Ads; obviously free to use for your own application!
+The Counter can display data parsed into a JSON webpage or waits for external calls to update its number. It therefore requires a bit of technical know-how. 
+
+The objective of this repo is to help developers understand the ins and outs of connecting your data to a Custom Counter. 
+
+We feature explanations and real-life code for use cases with services such as YouTube or Facebook Ads; obviously free to use for your own application!
 
 
 What other services would you like to see documented here? You love the Counter and would like to contribute to this repo? 
 
-Please email us to partnership@smiirl.com for any request, we would love to hear from you ❤️
+Please email us to partnership@smiirl.com for any request. We would love to hear from you ❤️
 
 
 ![CU_Batch3_Statique_Classique_1](https://user-images.githubusercontent.com/9904720/117823144-72ac3580-b26d-11eb-8f61-57e06192698c.jpeg)
@@ -44,7 +48,8 @@ First choose the most adapted way for your application and follow the correspond
 
 ### JSON URL
 The main configuration steps:
-1. Host your code on your server under your own url "http://mycounterproject.mybusiness.com".
+1. Configure your code file based on your project's specificity. Check out examples here: [`JSON URL`](/samples/JSON_URL_EXAMPLES.md).
+2. Host your code on your server under your own url "http://mycounterproject.mybusiness.com".
     - Send a response with the 'Content-type' `application/json`
     - It should contain something like
     ```json 
