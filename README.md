@@ -48,7 +48,8 @@ First choose the most adapted way for your application and follow the correspond
 
 ### JSON URL
 The main configuration steps:
-1. Host your code on your server under your own url "http://mycounterproject.mybusiness.com".
+1. Configure your code file based on your project's specificity. Check out examples here: [`JSON URL`](/samples/JSON_URL_EXAMPLES.md).
+2. Host your code on your server under your own url "http://mycounterproject.mybusiness.com".
     - Send a response with the 'Content-type' `application/json`
     - It should contain something like
     ```json 
