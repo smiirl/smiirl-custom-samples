@@ -13,4 +13,4 @@
 - [https://github.com/blephy/custom-smiirl-counter-api](https://github.com/blephy/custom-smiirl-counter-api), in PHP & JS: unofficial but awesome application to control the number with a sweet HTML/JS keypad.
 
 ## Connect any app with Zapier
-- [Automate synch with zapier](/samples/zapier): update the number from events in another tool.
+- [Automate synchronization with Zapier](/samples/zapier): use Zapier to connect your Custom Counter with hundreds of apps!
