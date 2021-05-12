@@ -8,6 +8,4 @@ This example allows you to turn your Custom Counter into a clock!
     - Change its options to `JSON URL`. 
     - Set the url to the one exposed in step 1.
     - Save your settings.
-
-If you want to have (or skip) the separator between hours and minutes, edit the last line.
  
