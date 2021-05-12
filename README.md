@@ -1,5 +1,5 @@
 
-# Smiirl Custom Counter Documentation & Libraries
+# Smiirl Custom Counter Documentation & Samples
 
 Welcome to the Smiirl Custom Counter official documentation 🥁 
 
@@ -12,12 +12,10 @@ The objective of this repo is to help developers understand the ins and outs of 
 We feature explanations and real-life code for use cases with services such as YouTube or Facebook Ads; obviously free to use for your own application!
 
 
-What other services would you like to see documented here? You love the Counter and would like to contribute to this repo? 
-
-Please email us to partnership@smiirl.com for any request. We would love to hear from you ❤️
-
-
 ![CU_Batch3_Statique_Classique_1](https://user-images.githubusercontent.com/9904720/117823144-72ac3580-b26d-11eb-8f61-57e06192698c.jpeg)
+
+## Before we get started
+This doc assumes that you can host your code online. If not, you should follow [this step-by-step tutorial](https://devcenter.heroku.com/articles/getting-started-with-php) for PHP by Heroku.
 
 
 ## Packages
@@ -29,12 +27,14 @@ We have it in PHP: [https://packagist.org/packages/smiirl/smiirl-library-php](ht
 And in JavaScript: [https://www.npmjs.com/package/@smiirl/smiirl-library-js](https://www.npmjs.com/package/@smiirl/smiirl-library-js)  
 
 #### Shopify app
-Thanks to [Alumworks](https://apps.shopify.com/smiirl), you can display your sales data in real time without writing a single line of code. No shit. 
+Thanks to [Alumworks](https://apps.shopify.com/smiirl), you can display your Shopify sales data in real time without writing a single line of code 💸 
  [https://www.shopify.com/counter](https://www.shopify.com/counter)
 
 #### Prestashop module
 You can install it in your Prestashop back office to display your sales data in real time. 
 [https://github.com/smiirl/prestashop-module](https://github.com/smiirl/prestashop-module)
+
+#### See link below to samples for YouTube or Facebook Ads.
 
 ## Counter Connection Options
 
@@ -84,3 +84,10 @@ In https://my.smiirl.com:
 Click the sections below to review the code for simple and more real-life projects 🤓
 - [`JSON URL`](/samples/JSON_URL_EXAMPLES.md)
 - [`JPUSH NUMBER`](/samples/PUSH_NUMBER_EXAMPLES.md)
+
+
+## Next steps together
+You love the Counter and would like to contribute? Pull Requests welcome 😍 
+
+What other services would you like to see documented here?
+Please email us to partnership@smiirl.com. We would love to hear from you ❤️
