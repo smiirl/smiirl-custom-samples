@@ -9,8 +9,8 @@ The code presented here allows you to display the **number or followers** or **t
 
 ## Get started
 
-- get your `channelId` from youtube.
-- get your `api-key` from https://console.developers.google.com/apis/credentials 
+- Get your `channelId` from youtube.
+- Get your `api-key` from https://console.developers.google.com/apis/credentials 
 - Run the `youtube_json.py` to listen your own url "http://youtubecounter.mybusiness.com" (code tested on python 3.9)
 - In https://my.smiirl.com:
     - change your counter to "json" mode and set the url to the previous one. 
