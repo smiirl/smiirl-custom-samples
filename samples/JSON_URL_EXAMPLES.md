@@ -11,7 +11,6 @@
 
 ## Actual services (i.e. more exciting real life applications 💡 )
 
-### PHP / Composer
 - [YouTube](/samples/php/youtube), in PHP: show the number of subscribers or video views on your YouTube channel. 
 - [YouTube](/samples/python/youtube), in Python.
 - [Facebook Ads Spend](/samples/php/facebookAdsSpend), in PHP: display total spend from several Facebook Ads accounts.
