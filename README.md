@@ -17,7 +17,7 @@ Please email us to partnership@smiirl.com for any request, we would love to hear
 
 
 ## Packages
-To get started, you may want to install the following packages. They help you transfer your data to the Couner with 1 line of code. 
+To get started, you may want to install the following packages. They help you transfer your data to the Counter with 1 line of code. 
 #### PHP + Composer
 We have it in PHP: [https://packagist.org/packages/smiirl/smiirl-library-php](https://packagist.org/packages/smiirl/smiirl-library-php)
 
