@@ -1,5 +1,5 @@
 
-This example pushes a fixed number to a Custom Counter
+This example pushes a fixed number to a Custom Counter: 
 - In https://my.smiirl.com:
     - Go to the `Settings` of your counter.
     - Change its options to `"PUSH NUMBER"`. 
