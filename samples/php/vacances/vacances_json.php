@@ -2,6 +2,7 @@
 
 // Require the Composer autoloader.
 require 'vendor/autoload.php';
+
 use Smiirl\Counter;
 
 require_once "CalendarTool.php";
@@ -17,21 +18,19 @@ function getMyNumber($params)
     if ($difference < 0) {
         $difference = 0;
     }
-    $totalDays = $cal->getRemaining($difference, 'day');
+    $totalDays = ceil($cal->getRemaining($difference, 'day'));
     $schoolDays = 0;
     $tmpTime = $todayTime;
-    for ($i = 0; $i < $totalDays; $i++) {
+    for ($i = 0; $i <= ($totalDays); $i++) {
         $tmpDate = new DateTime();
         $tmpDate->setTimestamp($tmpTime);
-        if ($cal->isSchoolDay($tmpDate)) {
+        $isSchoolDay = $cal->isSchoolDay($tmpDate);
+        if ($isSchoolDay) {
             $schoolDays++;
-        }
-        if ($cal->getRemaining($targetTime - $tmpTime, 'day') < 1) {
-            return $schoolDays;
         }
         $tmpTime = $tmpTime + (60 * 60 * 24);
     }
-    return$schoolDays;
+    return $schoolDays;
 }
 
 

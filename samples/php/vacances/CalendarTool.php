@@ -43,9 +43,6 @@ Class CalendarTool
         }
         $dateOnly = $dateTime->format("Y-m-d");
         $joursFeries = $this->jours_feries($dateTime->format('Y'));
-        //var_dump($joursFeries);
-        //var_dump($dateOnly);
-        //var_dump(in_array($dateOnly, array_values($joursFeries)));
         if (in_array($dateOnly, $joursFeries)) {
             //var_dump("ferié ****************************");
             return false;
