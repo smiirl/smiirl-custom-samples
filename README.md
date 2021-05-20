@@ -26,10 +26,6 @@ We have it in PHP: [https://packagist.org/packages/smiirl/smiirl-library-php](ht
 #### Node + Npm
 And in JavaScript: [https://www.npmjs.com/package/@smiirl/smiirl-library-js](https://www.npmjs.com/package/@smiirl/smiirl-library-js)  
 
-#### Shopify app
-Thanks to [Alumworks](https://apps.shopify.com/smiirl), you can display your Shopify sales data in real time without writing a single line of code 💸 
- [https://www.shopify.com/counter](https://www.shopify.com/counter)
-
 #### Prestashop module
 You can install it in your Prestashop back office to display your sales data in real time. 
 [https://github.com/smiirl/prestashop-module](https://github.com/smiirl/prestashop-module)
