@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smiirl Dice</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+  function rollTheDice() {
+    let prefixUrl = "http://localhost:9000/";
+    $.ajax({
+      type: "post",
+      url: prefixUrl + "roll.php",
+      cache: false,
+      success: function (jsonResponse) {
+        console.log(jsonResponse);
+        console.log(jsonResponse.number);
+        if (jsonResponse.number) {
+          console.log("in number case");
+          let playersNb = $('#playersSize').val();
+          let counterSize = $('#counterSize').val();
+          let responseTrim = jsonResponse.number.toString().substring(0, counterSize);
+          $("#counterResult").html(responseTrim);
+          $('#counterResultShow').attr('data-step', 'hidden');
+          /*$('#counterResult').hide();
+          $('#counterResultMissing').hide();
+          $('#counterResultHidden').show();*/
+
+          return false;
+        }
+      }
+    });
+    return false;
+  };
+
+  function preparePlayers() {
+    let playersNb = $('#playersSize').val();
+    let counterSize = $('#counterSize').val();
+    console.log("in preparePlayers: players=" + playersNb + " counterSize=" + counterSize);
+    let playersContainer = document.getElementById("players");
+    playersContainer.innerHTML = '';
+    for (let player = 1; player <= playersNb; player++) {
+      playerDiv = document.createElement("div");
+      playerDiv.setAttribute('class', 'col player');
+      playerDiv.setAttribute('id', 'player' + player);
+      playerDiv.setAttribute('data-id', player);
+      playerDivTitle = document.createElement("h3");
+      playerDivTitle.append(document.createTextNode("Player " + player));
+      playerDiv.append(playerDivTitle);
+      playerDiv.append(document.createElement("hr"));
+      for (let digit = 1; digit <= counterSize; digit++) {
+        playerSelect = document.createElement("select");
+        playerSelect.setAttribute('id', 'd' + player + '_' + digit);
+        playerSelect.setAttribute('name', 'd' + player + '_' + digit);
+        playerSelect.setAttribute('class', 'd');
+        for (let option = 0; option <= 9; option++) {
+          playerOption = document.createElement("option");
+          playerOption.setAttribute('value', option);
+          playerOption.append(document.createTextNode(option));
+          playerSelect.append(playerOption);
+        }
+        playerOption = document.createElement("option");
+        playerOption.setAttribute('value', '');
+        //playerOption.append(document.createTextNode(''));
+        playerSelect.append(playerOption);
+        playerDiv.append(playerSelect);
+      }
+      payerScores = document.createElement("div")
+      payerScores.setAttribute('class', 'scores');
+      payerScores.append(document.createElement("hr"));
+      currentRes = document.createElement("p");
+      currentRes.append(document.createTextNode('Last Roll: '));
+      currentResValue = document.createElement("span");
+      currentResValue.setAttribute('id', 'lp' + player);
+      currentResValue.setAttribute('class', 'score');
+      currentResValue.append(document.createTextNode('0'));
+      currentRes.append(currentResValue);
+      payerScores.append(currentRes);
+      currentRes = document.createElement("p");
+      currentRes.append(document.createTextNode('Total: '));
+      currentResValue = document.createElement("span");
+      currentResValue.setAttribute('id', 'tp' + player);
+      currentResValue.append(document.createTextNode('0'));
+      currentRes.append(currentResValue);
+      payerScores.append(currentRes);
+
+      playerDiv.append(payerScores);
+      playersContainer.append(playerDiv);
+    }
+  }
+
+  function getReward(fromString, toString) {
+    return Math.floor(Math.random() * 42)
+  }
+
+  function computeResult() {
+    console.log("in conputeResult");
+    currentResult = $("#counterResult").text();
+    console.log(currentResult);
+    let playersNb = $('#playersSize').val();
+    let counterSize = $('#counterSize').val();
+    for (let player = 1; player <= playersNb; player++) {
+      userBet = '';
+      for (let digit = 1; digit <= counterSize; digit++) {
+        if($('#d' + player + '_' + digit).val() || $('#d' + player + '_' + digit).val() === 0){
+          userBet = userBet + $('#d' + player + '_' + digit).val();
+        }
+        else {
+          userBet = userBet + ' ';
+        }
+      }
+      console.log(userBet);
+      betValue = getReward(userBet, currentResult);
+      console.log(betValue);
+      //update last roll
+      $('#lp' + player).html(betValue);
+      $('#tp' + player).html(parseInt($('#tp' + player).text()) + betValue);
+    }
+  }
+</script>
+<br/>
+<div class="container">
+    <div class="container-fluid">
+        <form class="form-control text-center">
+            <div class="row">
+                <div class="col">
+                    <label for="playersSize">Number of Players</label>
+                    <input type="number" min="1" step="1"
+                           name="playersSize" id="playersSize"
+                           value="1"
+                           class="form-control"
+                           onchange="preparePlayers()"/>
+                </div>
+                <div class="col">
+                    <label for="counterSize">Size of the counter</label>
+                    <select name="counterSize" id="counterSize"
+                            class="form-control"
+                            onchange="preparePlayers()">
+                        <option value="5">5</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+                <!--<div class="col">
+                    <button id="showCounterResult"
+                           class="btn btn-lg btn-dark"
+                    >Show Result</button>
+                </div>-->
+            </div>
+            <br/>
+            <div class="container">
+                <div id="players" class="row">
+                </div>
+            </div>
+            <br/><br/>
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="return rollTheDice();">Roll the dice
+            </button>
+            <br/><br/>
+            <div class="text-center">
+                <button class="btn btn-lg danger" id="counterResultShow" data-step="empty">
+                    <span id="counterResultMissing">No Result</span>
+                    <span id="counterResultHidden">Reveal Result</span>
+                    <span id="counterResult"></span>
+                </button>
+            </div>
+        </form>
+        <br/>
+        <br/>
+    </div>
+</div>
+<script type="text/javascript">
+  (function () {
+    // your page initialization code here
+    // the DOM will be available here
+    preparePlayers();
+    //$('#counterResult').hide();
+    $('#counterResultHidden').hide();
+    $('#counterResultShow').on("click", function () {
+      currentStep = $('#counterResultShow').attr("data-step");
+      switch (currentStep) {
+        case 'empty':
+          $('#counterResult').hide();
+          $('#counterResultMissing').show();
+          $('#counterResultHidden').hide();
+          break;
+        case 'hidden':
+          $('#counterResult').show();
+          $('#counterResultMissing').hide();
+          $('#counterResultHidden').hide();
+          $('#counterResultShow').attr("data-step", "shown");
+          computeResult();
+          $('.score').show()
+          break;
+        case 'shown':
+          $('#counterResult').hide();
+          $('#counterResultMissing').hide();
+          $('#counterResultHidden').show();
+          $('#counterResultShow').attr("data-step", "rehidden");
+          $('.score').hide()
+          break;
+        case 'rehidden':
+          $('#counterResult').show();
+          $('#counterResultMissing').hide();
+          $('#counterResultHidden').hide();
+          $('#counterResultShow').attr("data-step", "shown");
+          // todo remove this line
+          computeResult();
+          $('.score').show()
+          break;
+        default:
+          console.log("bad boy, why are you here");
+      }
+
+
+      return false;
+    });
+  })();
+</script>
+</body>
+</html>
