@@ -36,16 +36,16 @@
       cache: false,
       success: function (jsonResponse) {
         if (jsonResponse.number) {
-          console.log("in number case");
           let playersNb = $('#playersSize').val();
           let counterSize = $('#counterSize').val();
           let responseTrim = jsonResponse.number.toString().substring(0, counterSize);
-          $("#counterResult").html(responseTrim);
-          $('#counterResultShow').attr('data-step', 'hidden');
-          /*$('#counterResult').hide();
-          $('#counterResultMissing').hide();
-          $('#counterResultHidden').show();*/
 
+          $("#counterResult").attr("data-number", responseTrim);
+          $("#counterResult").html("Reset (" + responseTrim +")");
+          $('#counterResult').hide();
+          $('#counterResultMissing').hide();
+          $('#counterResultHidden').show();
+          $('#counterResultAction').attr('data-step', 'hidden');
           return false;
         }
       }
@@ -156,7 +156,7 @@
 
   function computeResult() {
     // console.log("in conputeResult");
-    currentResult = $("#counterResult").text();
+    currentResult = $("#counterResult").attr("data-number");
     // console.log(currentResult);
     let playersNb = $('#playersSize').val();
     let counterSize = $('#counterSize').val();
@@ -171,18 +171,11 @@
       }
       // console.log(userBet);
       betValue = getReward(userBet, currentResult);
-      console.log("betValue:" + betValue);
       goodDigits = getGoodPositions(userBet, currentResult);
-      console.log("goood digits: ");
-      console.log(goodDigits);
       goodNumbers = getGoodNumbers(userBet, currentResult);
-      console.log("not that bad digits: ");
-      console.log(goodNumbers);
-      //update last roll
       $('#lp' + player).html(betValue);
       $('#tp' + player).html(parseInt($('#tp' + player).text()) + betValue);
       addBetClasses(player, goodDigits, goodNumbers, "goodDigit", "goodNumber", "bad", "hiddenResult");
-      //addBetClasses(playerPos, goodDigits, goodNumbers, goodDigitClass, goodNumberClass, badClass, tmpClass)
     }
   }
 
@@ -246,6 +239,14 @@
     return false;
   }
 
+  function removeBetClasses(goodDigitClass, goodNumberClass, badClass, tmpClass) {
+    $('.d').removeClass(goodDigitClass);
+    $('.d').removeClass(goodNumberClass);
+    $('.d').removeClass(badClass);
+    $('.d').removeClass(tmpClass);
+    return false;
+  }
+
 
 </script>
 <br/>
@@ -270,11 +271,6 @@
                         <option value="7">7</option>
                     </select>
                 </div>
-                <!--<div class="col">
-                    <button id="showCounterResult"
-                           class="btn btn-lg btn-dark"
-                    >Show Result</button>
-                </div>-->
             </div>
             <br/>
             <div class="container">
@@ -282,16 +278,16 @@
                 </div>
             </div>
             <br/><br/>
-            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="return rollTheDice();">Roll the dice
+            <button type="button"
+                    id="counterResultAction"
+                    data-step="empty"
+                    class="btn btn-lg btn-block btn-dark"
+            >
+                <span id="counterResultMissing">Roll the dice</span>
+                <span id="counterResultHidden">Reveal Result</span>
+                <span id="counterResult">Reset</span>
             </button>
             <br/><br/>
-            <div class="text-center">
-                <button class="btn btn-lg danger" id="counterResultShow" data-step="empty">
-                    <span id="counterResultMissing">No Result</span>
-                    <span id="counterResultHidden">Reveal Result</span>
-                    <span id="counterResult"></span>
-                </button>
-            </div>
         </form>
         <br/>
         <br/>
@@ -299,52 +295,44 @@
 </div>
 <script type="text/javascript">
   (function () {
-    // your page initialization code here
-    // the DOM will be available here
     preparePlayers();
-    //$('#counterResult').hide();
+    $('#counterResult').hide();
     $('#counterResultHidden').hide();
-    $('#counterResultShow').on("click", function () {
-      currentStep = $('#counterResultShow').attr("data-step");
+    $('#counterResultAction').on("click", function () {
+      currentStep = $('#counterResultAction').attr("data-step");
       switch (currentStep) {
         case 'empty':
+          rollTheDice()
           $('#counterResult').hide();
           $('#counterResultMissing').show();
           $('#counterResultHidden').hide();
+          $('#counterResultAction').addClass("btn-primary");
+          $('#counterResultAction').removeClass("btn-dark");
           break;
         case 'hidden':
           $('#counterResult').show();
           $('#counterResultMissing').hide();
           $('#counterResultHidden').hide();
-          $('#counterResultShow').attr("data-step", "shown");
+          $('#counterResultAction').attr("data-step", "shown");
+          $('#counterResultAction').removeClass("btn-primary");
+          $('#counterResultAction').addClass("btn-dark");
           computeResult();
           $('.score').show()
-          $('.hiddenResult').removeClass("hiddenResult");
+          $('.d').removeClass("hiddenResult");
           break;
         case 'shown':
           $('#counterResult').hide();
-          $('#counterResultMissing').hide();
-          $('#counterResultHidden').show();
-          $('#counterResultShow').attr("data-step", "rehidden");
-          $('.d').addClass("hiddenResult");
-
-          $('.score').hide()
-          break;
-        case 'rehidden':
-          $('#counterResult').show();
-          $('#counterResultMissing').hide();
+          $('#counterResultMissing').show();
           $('#counterResultHidden').hide();
-          $('#counterResultShow').attr("data-step", "shown");
-          // todo remove this line
-          computeResult();
-          $('.hiddenResult').removeClass("hiddenResult");
-          $('.score').show()
+          $('#counterResultAction').attr("data-step", "empty");
+          removeBetClasses("goodDigit", "goodNumber", "bad", "hiddenResult");
+          $('.score').hide();
+          $('#counterResultAction').removeClass("btn-primary");
+          $('#counterResultAction').addClass("btn-dark");
           break;
         default:
-          console.log("bad boy, why are you here");
+          //console.log("bad boy, why are you here");
       }
-
-
       return false;
     });
   })();
