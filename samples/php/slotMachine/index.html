@@ -5,6 +5,25 @@
     <title>Smiirl Dice</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .goodDigit {
+            background: green;
+        }
+
+        .goodNumber {
+            background: orange;
+        }
+
+        .bad {
+            background: none;
+        }
+
+        .hiddenResult {
+            background: none !important;
+        }
+    </style>
+
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -16,8 +35,6 @@
       url: prefixUrl + "roll.php",
       cache: false,
       success: function (jsonResponse) {
-        console.log(jsonResponse);
-        console.log(jsonResponse.number);
         if (jsonResponse.number) {
           console.log("in number case");
           let playersNb = $('#playersSize').val();
@@ -39,7 +56,7 @@
   function preparePlayers() {
     let playersNb = $('#playersSize').val();
     let counterSize = $('#counterSize').val();
-    console.log("in preparePlayers: players=" + playersNb + " counterSize=" + counterSize);
+    //console.log("in preparePlayers: players=" + playersNb + " counterSize=" + counterSize);
     let playersContainer = document.getElementById("players");
     playersContainer.innerHTML = '';
     for (let player = 1; player <= playersNb; player++) {
@@ -92,34 +109,144 @@
     }
   }
 
-  function getReward(fromString, toString) {
-    return Math.floor(Math.random() * 42)
+  function getReward(fromString, toString, distance) {
+    //return Math.floor(Math.random() * 42)
+    multiplier = 1
+    wonPoints = 0;
+    counterSize = $('#counterSize').val();
+    for (let digit = 0; digit < counterSize; digit++) {
+      var digitFrom = '';
+      var digitTo = '';
+      if (fromString.charAt(digit) !== '') {
+        digitFrom = fromString.charAt(digit);
+      }
+      if (toString.charAt(digit) !== '') {
+        digitTo = toString.charAt(digit);
+      }
+      digitDistance = getDigitDistance(digitFrom, digitTo, distance);
+      wonPoints = wonPoints + Math.round(60 / (1 + digitDistance));
+      multiplier = multiplier * 2;
+    }
+    return wonPoints * multiplier;
   }
 
+  function getDigitDistance(digitFrom, digitTo, distance) {
+    resDistance = 1;
+    digitFromNum = parseInt(digitFrom);
+    if (digitFrom == '' || digitFrom == ' ') {
+      digitFromNum = 10
+    }
+    digitToNum = parseInt(digitTo);
+    if (digitTo == '' || digitTo == ' ') {
+      digitToNum = 10
+    }
+    switch (distance) {
+      case 'weighted':
+        resDistance = Math.abs(digitFromNum - digitToNum) % 11
+        break;
+      case '':
+      case 'kronecker':
+      default:
+        resDistance = (digitFromNum == digitToNum) ? 0 : 1;
+        break;
+    }
+    return resDistance;
+  }
+
+
   function computeResult() {
-    console.log("in conputeResult");
+    // console.log("in conputeResult");
     currentResult = $("#counterResult").text();
-    console.log(currentResult);
+    // console.log(currentResult);
     let playersNb = $('#playersSize').val();
     let counterSize = $('#counterSize').val();
     for (let player = 1; player <= playersNb; player++) {
       userBet = '';
       for (let digit = 1; digit <= counterSize; digit++) {
-        if($('#d' + player + '_' + digit).val() || $('#d' + player + '_' + digit).val() === 0){
+        if ($('#d' + player + '_' + digit).val() || $('#d' + player + '_' + digit).val() === 0) {
           userBet = userBet + $('#d' + player + '_' + digit).val();
-        }
-        else {
+        } else {
           userBet = userBet + ' ';
         }
       }
-      console.log(userBet);
+      // console.log(userBet);
       betValue = getReward(userBet, currentResult);
-      console.log(betValue);
+      console.log("betValue:" + betValue);
+      goodDigits = getGoodPositions(userBet, currentResult);
+      console.log("goood digits: ");
+      console.log(goodDigits);
+      goodNumbers = getGoodNumbers(userBet, currentResult);
+      console.log("not that bad digits: ");
+      console.log(goodNumbers);
       //update last roll
       $('#lp' + player).html(betValue);
       $('#tp' + player).html(parseInt($('#tp' + player).text()) + betValue);
+      addBetClasses(player, goodDigits, goodNumbers, "goodDigit", "goodNumber", "bad", "hiddenResult");
+      //addBetClasses(playerPos, goodDigits, goodNumbers, goodDigitClass, goodNumberClass, badClass, tmpClass)
     }
   }
+
+  function getGoodPositions(fromString, toString) {
+    counterSize = $('#counterSize').val();
+    res = [];
+    for (let digit = 0; digit < counterSize; digit++) {
+      var digitFrom = '';
+      var digitTo = '';
+      if (fromString.charAt(digit) !== '') {
+        digitFrom = fromString.charAt(digit);
+      }
+      if (toString.charAt(digit) !== '') {
+        digitTo = toString.charAt(digit);
+      }
+      digitDistance = getDigitDistance(digitFrom, digitTo, '');
+      if (digitDistance == 0) {
+        res.push(digit);
+      }
+    }
+    return res;
+  }
+
+  function getGoodNumbers(fromString, toString) {
+    counterSize = $('#counterSize').val();
+    res = [];
+    for (let digit = 0; digit < counterSize; digit++) {
+      for (let digit2 = 0; digit2 < counterSize; digit2++) {
+        //if (digit !== digit2) {
+        if (getDigitDistance(fromString.charAt(digit), toString.charAt(digit2), '') == 0) {
+          res.push(digit);
+          break;
+        }
+        //}
+      }
+    }
+    return res;
+  }
+
+  function addBetClasses(player, goodDigits, goodNumbers, goodDigitClass, goodNumberClass, badClass, tmpClass) {
+    counterSize = $('#counterSize').val();
+    for (let digit = 0; digit < counterSize; digit++) {
+      selectId = 'd' + player + '_' + (digit + 1);
+      if (tmpClass.length) {
+        $('#' + selectId).addClass(tmpClass);
+      }
+      if (goodDigits.indexOf(digit) !== -1) {
+        $('#' + selectId).removeClass(badClass);
+        $('#' + selectId).removeClass(goodNumberClass);
+        $('#' + selectId).addClass(goodDigitClass);
+      } else if (goodNumbers.indexOf(digit) !== -1) {
+        $('#' + selectId).removeClass(badClass);
+        $('#' + selectId).removeClass(goodDigitClass);
+        $('#' + selectId).addClass(goodNumberClass);
+      } else {
+        $('#' + selectId).removeClass(badClass);
+        $('#' + selectId).removeClass(goodDigitClass);
+        $('#' + selectId).removeClass(goodNumberClass);
+      }
+    }
+    return false;
+  }
+
+
 </script>
 <br/>
 <div class="container">
@@ -192,12 +319,15 @@
           $('#counterResultShow').attr("data-step", "shown");
           computeResult();
           $('.score').show()
+          $('.hiddenResult').removeClass("hiddenResult");
           break;
         case 'shown':
           $('#counterResult').hide();
           $('#counterResultMissing').hide();
           $('#counterResultHidden').show();
           $('#counterResultShow').attr("data-step", "rehidden");
+          $('.d').addClass("hiddenResult");
+
           $('.score').hide()
           break;
         case 'rehidden':
@@ -207,6 +337,7 @@
           $('#counterResultShow').attr("data-step", "shown");
           // todo remove this line
           computeResult();
+          $('.hiddenResult').removeClass("hiddenResult");
           $('.score').show()
           break;
         default:
