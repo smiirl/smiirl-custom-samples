@@ -59,7 +59,7 @@
           if(responseStr.length > counterSize){
             responseStr = responseStr.substr(responseStr.length - counterSize);
           }
-          console.log("roll:" + responseStr);
+          //console.log("roll:" + responseStr);
           $("#counterResult").attr("data-number", responseStr);
           $("#counterResult").html("Reset (" + responseStr + ")");
           $('#counterResult').hide();
@@ -76,7 +76,6 @@
   function preparePlayers() {
     let playersNb = $('#playersSize').val();
     let counterSize = $('#counterSize').val();
-    //console.log("in preparePlayers: players=" + playersNb + " counterSize=" + counterSize);
     let playersContainer = document.getElementById("players");
     playersContainer.innerHTML = '';
     for (let player = 1; player <= playersNb; player++) {
@@ -131,7 +130,6 @@
   }
 
   function getReward(fromString, toString, distance) {
-    //return Math.floor(Math.random() * 42)
     multiplier = 1
     wonPoints = 0;
     counterSize = $('#counterSize').val();
@@ -162,10 +160,6 @@
       default:
         goodDigits = getGoodPositions(userBet, currentResult);
         goodNumbers = getGoodNumbers(userBet, currentResult);
-        console.log("goodDigits.length");
-        console.log(goodDigits);
-        console.log("goodNumbers");
-        console.log(goodNumbers);
         wonPoints = wonPoints + (100 * goodDigits.length) + (10 * (goodNumbers.length - goodDigits.length));
         multiplier = 1 + goodDigits.length;
         break;
@@ -198,13 +192,10 @@
 
 
   function computeResult(distance) {
-    // console.log("in conputeResult");
     currentResult = $("#counterResult").attr("data-number");
     let playersNb = $('#playersSize').val();
     let counterSize = $('#counterSize').val();
     for (var player = 1; player <= playersNb; player++) {
-      console.log("player");
-      console.log(player);
       userBet = '';
       for (let digit = 1; digit <= counterSize; digit++) {
         if ($('#d' + player + '_' + digit).val() || $('#d' + player + '_' + digit).val() === 0) {
@@ -213,7 +204,6 @@
           userBet = userBet + ' ';
         }
       }
-      console.log(userBet);
       betValue = getReward(userBet, currentResult, distance);
       goodDigits = getGoodPositions(userBet, currentResult);
       goodNumbers = getGoodNumbers(userBet, currentResult);
