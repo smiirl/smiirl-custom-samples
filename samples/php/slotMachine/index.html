@@ -7,6 +7,23 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style>
+
+        @font-face {
+            font-family: 'AVA';
+            src: url('https://www.smiirl.com/smiirl/fonts/AVA-Medium.eot');
+            src: url('https://www.smiirl.com/smiirl/fonts/AVA-Medium.eot?#iefix') format('embedded-opentype'),
+            url('https://www.smiirl.com/smiirl/fonts/AVA-Medium.woff2') format('woff2'),
+            url('https://www.smiirl.com/smiirl/fonts/AVA-Medium.woff') format('woff'),
+            url('https://www.smiirl.com/smiirl/fonts/AVA-Medium.ttf') format('truetype'),
+            url('https://www.smiirl.com/smiirl/fonts/AVA-Medium.svg#AVA-Medium') format('svg');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        body {
+            font-family: AVA
+        }
+
         .goodDigit {
             background: green;
         }
@@ -36,12 +53,15 @@
       cache: false,
       success: function (jsonResponse) {
         if (jsonResponse.number) {
-          let playersNb = $('#playersSize').val();
-          let counterSize = $('#counterSize').val();
-          let responseTrim = jsonResponse.number.toString().substring(0, counterSize);
-
-          $("#counterResult").attr("data-number", responseTrim);
-          $("#counterResult").html("Reset (" + responseTrim +")");
+          playersNb = $('#playersSize').val();
+          counterSize = $('#counterSize').val();
+          responseStr = jsonResponse.number.toString();
+          if(responseStr.length > counterSize){
+            responseStr = responseStr.substr(responseStr.length - counterSize);
+          }
+          console.log("roll:" + responseStr);
+          $("#counterResult").attr("data-number", responseStr);
+          $("#counterResult").html("Reset (" + responseStr + ")");
           $('#counterResult').hide();
           $('#counterResultMissing').hide();
           $('#counterResultHidden').show();
@@ -107,6 +127,7 @@
       playerDiv.append(payerScores);
       playersContainer.append(playerDiv);
     }
+    return false;
   }
 
   function getReward(fromString, toString, distance) {
@@ -123,9 +144,31 @@
       if (toString.charAt(digit) !== '') {
         digitTo = toString.charAt(digit);
       }
-      digitDistance = getDigitDistance(digitFrom, digitTo, distance);
-      wonPoints = wonPoints + Math.round(60 / (1 + digitDistance));
-      multiplier = multiplier * 2;
+      switch (distance) {
+        case 'digitModuloDistance':
+          digitDistance = getDigitDistance(digitFrom, digitTo, distance);
+          wonPoints = wonPoints + Math.round(42 / (1 + digitDistance));
+          if (digitDistance == 0) {
+            multiplier = multiplier * 2;
+          }
+          break;
+        default:
+          break;
+      }
+    }
+    switch (distance) {
+      case 'digitModuloDistance':
+        break;
+      default:
+        goodDigits = getGoodPositions(userBet, currentResult);
+        goodNumbers = getGoodNumbers(userBet, currentResult);
+        console.log("goodDigits.length");
+        console.log(goodDigits);
+        console.log("goodNumbers");
+        console.log(goodNumbers);
+        wonPoints = wonPoints + (100 * goodDigits.length) + (10 * (goodNumbers.length - goodDigits.length));
+        multiplier = 1 + goodDigits.length;
+        break;
     }
     return wonPoints * multiplier;
   }
@@ -154,13 +197,14 @@
   }
 
 
-  function computeResult() {
+  function computeResult(distance) {
     // console.log("in conputeResult");
     currentResult = $("#counterResult").attr("data-number");
-    // console.log(currentResult);
     let playersNb = $('#playersSize').val();
     let counterSize = $('#counterSize').val();
-    for (let player = 1; player <= playersNb; player++) {
+    for (var player = 1; player <= playersNb; player++) {
+      console.log("player");
+      console.log(player);
       userBet = '';
       for (let digit = 1; digit <= counterSize; digit++) {
         if ($('#d' + player + '_' + digit).val() || $('#d' + player + '_' + digit).val() === 0) {
@@ -169,14 +213,15 @@
           userBet = userBet + ' ';
         }
       }
-      // console.log(userBet);
-      betValue = getReward(userBet, currentResult);
+      console.log(userBet);
+      betValue = getReward(userBet, currentResult, distance);
       goodDigits = getGoodPositions(userBet, currentResult);
       goodNumbers = getGoodNumbers(userBet, currentResult);
       $('#lp' + player).html(betValue);
       $('#tp' + player).html(parseInt($('#tp' + player).text()) + betValue);
       addBetClasses(player, goodDigits, goodNumbers, "goodDigit", "goodNumber", "bad", "hiddenResult");
     }
+    return false;
   }
 
   function getGoodPositions(fromString, toString) {
@@ -251,6 +296,8 @@
 </script>
 <br/>
 <div class="container">
+    <h1 class="display-4 text-center">Smiirl Slot Machine</h1>
+    <br/>
     <div class="container-fluid">
         <form class="form-control text-center">
             <div class="row">
@@ -316,8 +363,8 @@
           $('#counterResultAction').attr("data-step", "shown");
           $('#counterResultAction').removeClass("btn-primary");
           $('#counterResultAction').addClass("btn-dark");
-          computeResult();
-          $('.score').show()
+          computeResult('');
+          $('.score').show();
           $('.d').removeClass("hiddenResult");
           break;
         case 'shown':
@@ -331,7 +378,7 @@
           $('#counterResultAction').addClass("btn-dark");
           break;
         default:
-          //console.log("bad boy, why are you here");
+        //console.log("bad boy, why are you here");
       }
       return false;
     });
