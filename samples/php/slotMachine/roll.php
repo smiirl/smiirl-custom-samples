@@ -7,7 +7,13 @@ use Smiirl\Counter;
 
 // set the real values from https://my.smiirl.com
 $mac = "e08e3c39c9b4";
+if (isset($_GET['cId'])) {
+    $mac = $_GET['cId'];
+}
 $token = "97cbc24fe27233cd746ffb09a45f3754";
+if (isset($_GET['cT'])) {
+    $mac = $_GET['cT'];
+}
 $counter = new Counter($mac, $token);
 $digitNb = 7;
 if (isset($_GET['counterSize'])) {

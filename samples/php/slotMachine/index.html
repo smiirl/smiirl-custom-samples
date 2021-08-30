@@ -49,7 +49,9 @@
     let prefixUrl = "http://localhost:9000/";
     let suffixUrl = "?counterSize=" + $('#counterSize').val()
       + '&minDigit=' + $('#minDigit').val()
-      + '&maxDigit='+ $('#maxDigit').val();
+      + '&maxDigit='+ $('#maxDigit').val()
+      + '&cId='+ $('#cId').val()
+    ;
     $.ajax({
       type: "post",
       url: prefixUrl + "roll.php" + suffixUrl,
@@ -341,6 +343,29 @@
                     </select>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <label for="cId">Counter Id</label>
+                    <input id="cId"
+                           name="cId"
+                           type="text"
+                           value="e08e3c39c9b4"
+                           title="Find it in https://my.smiirl.com"
+                           class="form-control"
+                    />
+                </div>
+                <div class="col">
+                    <label for="cT">Counter Token</label>
+                    <input id="cT"
+                           name="cT"
+                           type="text"
+                           value="97cbc24fe27233cd746ffb09a45f3754"
+                           title="Find it in https://my.smiirl.com"
+                           class="form-control"
+                    />
+                </div>
+            </div>
+            <br/>
             <br/>
             <div class="container">
                 <div id="players" class="row">
