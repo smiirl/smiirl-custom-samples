@@ -47,16 +47,19 @@
 <script type="text/javascript">
   function rollTheDice() {
     let prefixUrl = "http://localhost:9000/";
+    let suffixUrl = "?counterSize=" + $('#counterSize').val()
+      + '&minDigit=' + $('#minDigit').val()
+      + '&maxDigit='+ $('#maxDigit').val();
     $.ajax({
       type: "post",
-      url: prefixUrl + "roll.php",
+      url: prefixUrl + "roll.php" + suffixUrl,
       cache: false,
       success: function (jsonResponse) {
         if (jsonResponse.number) {
           playersNb = $('#playersSize').val();
           counterSize = $('#counterSize').val();
           responseStr = jsonResponse.number.toString();
-          if(responseStr.length > counterSize){
+          if (responseStr.length > counterSize) {
             responseStr = responseStr.substr(responseStr.length - counterSize);
           }
           //console.log("roll:" + responseStr);
@@ -78,13 +81,20 @@
     let counterSize = $('#counterSize').val();
     let playersContainer = document.getElementById("players");
     playersContainer.innerHTML = '';
+    minDigitNumber = $('#minDigit').val();
+    maxDigitNumber = $('#maxDigit').val();
     for (let player = 1; player <= playersNb; player++) {
       playerDiv = document.createElement("div");
       playerDiv.setAttribute('class', 'col player');
       playerDiv.setAttribute('id', 'player' + player);
       playerDiv.setAttribute('data-id', player);
       playerDivTitle = document.createElement("h3");
-      playerDivTitle.append(document.createTextNode("Player " + player));
+      playerDivTitleInput = document.createElement("input");
+      playerDivTitleInput.setAttribute('class', 'h3 form-control');
+      playerDivTitleInput.setAttribute('type', 'text');
+      playerDivTitleInput.setAttribute('value', "Player " + player);
+      //playerDivTitle.append(document.createTextNode("Player " + player));
+      playerDivTitle.append(playerDivTitleInput);
       playerDiv.append(playerDivTitle);
       playerDiv.append(document.createElement("hr"));
       for (let digit = 1; digit <= counterSize; digit++) {
@@ -92,16 +102,16 @@
         playerSelect.setAttribute('id', 'd' + player + '_' + digit);
         playerSelect.setAttribute('name', 'd' + player + '_' + digit);
         playerSelect.setAttribute('class', 'd');
-        for (let option = 0; option <= 9; option++) {
+        for (let option = minDigitNumber; option <= maxDigitNumber; option++) {
           playerOption = document.createElement("option");
           playerOption.setAttribute('value', option);
           playerOption.append(document.createTextNode(option));
           playerSelect.append(playerOption);
         }
-        playerOption = document.createElement("option");
+        /*playerOption = document.createElement("option");
         playerOption.setAttribute('value', '');
-        //playerOption.append(document.createTextNode(''));
         playerSelect.append(playerOption);
+        */
         playerDiv.append(playerSelect);
       }
       payerScores = document.createElement("div")
@@ -161,7 +171,7 @@
         goodDigits = getGoodPositions(userBet, currentResult);
         goodNumbers = getGoodNumbers(userBet, currentResult);
         wonPoints = wonPoints + (100 * goodDigits.length) + (10 * (goodNumbers.length - goodDigits.length));
-        multiplier = 1 + goodDigits.length;
+        multiplier = Math.max(1, Math.pow(2, (goodDigits.length - 1)));
         break;
     }
     return wonPoints * multiplier;
@@ -306,6 +316,28 @@
                             onchange="preparePlayers()">
                         <option value="5">5</option>
                         <option value="7">7</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="minDigit">Minimal Digit</label>
+                    <select name="minDigit" id="minDigit"
+                            class="form-control"
+                            onchange="preparePlayers()">
+                        <option value="0" selected="selected">0</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="maxDigit">Maximal Digit</label>
+                    <select name="maxDigit" id="maxDigit"
+                            class="form-control"
+                            onchange="preparePlayers()">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="6" selected="selected">6</option>
+                        <option value="9">9</option>
                     </select>
                 </div>
             </div>
