@@ -1,19 +1,19 @@
 <?php
 
 // Require the Composer autoloader.
-require 'vendor/autoload.php';
+require "vendor/autoload.php";
 
 use Smiirl\Counter;
 
 function getMyNumber($params = [])
 {
     $asset = "bitcoin";
-    if(isset($params['asset'])){
-        $asset = $params['asset'];
+    if (isset($params["asset"])) {
+        $asset = $params["asset"];
     }
     $currency = "usd";
-    if(isset($params['currency'])){
-        $currency = $params['currency' ];
+    if (isset($params["currency"])) {
+        $currency = $params["currency"];
     }
     $getUrl = "https://api.coingecko.com/api/v3/simple/price?ids=" . $asset . "&vs_currencies=" . $currency;
     $ch = curl_init();
@@ -27,11 +27,7 @@ function getMyNumber($params = [])
     curl_close($ch);
     $api_response_obj = json_decode($api_response);
     return $api_response_obj->$asset->$currency;
-
 }
 
 $counter = new Counter();
 $counter->jsonResponse(getMyNumber($_GET));
-
-
-
