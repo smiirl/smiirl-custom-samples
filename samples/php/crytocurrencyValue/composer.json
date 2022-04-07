@@ -1,0 +1,16 @@
+{
+    "name": "smiirl/smiirl-library-sample-cryptocurrency-value",
+    "description": "A simple usage of the smiirl-library-php library to display the price of a digital asset",
+    "type": "project",
+    "require": {
+        "smiirl/smiirl-library-php": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrien Vieilleribiere",
+            "email": "adrien@smiirl.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
