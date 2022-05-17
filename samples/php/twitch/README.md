@@ -5,7 +5,7 @@
 
 A Smiirl Custom Counter connected to Twitch is a must-have tool for any Twitch streamer! 
 
-The code presented here allows you to display the **number or followers** of a Twitch account.
+The code presented here allows you to display the **number of followers** of any Twitch account.
 
 ## Get started
 ```
