@@ -1,6 +1,9 @@
-# Display your Twitch account subscribers 😎
+# Display your Twitch subscriber count 😎
 
-A Custom Counter connected to Twitch is must-have tool for any Twitch streamer! 
+![178400762_199577778445617_1384783600845623641_n](https://user-images.githubusercontent.com/9904720/168776822-a94a752b-dcef-432d-a9f1-dcd49a8f3031.jpg)
+
+
+A Smiirl Custom Counter connected to Twitch is a must-have tool for any Twitch streamer! 
 
 The code presented here allows you to display the **number or followers** of a Twitch account.
 
