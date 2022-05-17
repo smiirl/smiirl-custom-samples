@@ -1,0 +1,19 @@
+{
+    "name": "smiirl/smiirl-library-sample-twitch",
+    "description": "Shown the number or followers of a twitch channel",
+    "type": "project",
+    "require": {
+        "php": "8.*|7.*",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "nicklaw5/twitch-api-php": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrien Vieilleribiere",
+            "email": "adrien@smiirl.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

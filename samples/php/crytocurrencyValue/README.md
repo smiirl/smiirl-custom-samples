@@ -1,7 +1,7 @@
 This example allows you to turn your Custom Counter into a digital asset tracker!
 
 1.  `composer install`
-2.  Host your `price.php` on your server under your own domain "http://mycounterproject.mybusiness.com".
+2.  Host your `price.php` on your server under your own domain "http://mycounterproject.mybusiness.com/price.php".
 3.  In https://my.smiirl.com:
     - Go to the Settings of your counter.
     - Change its options to `JSON URL`.
