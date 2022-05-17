@@ -12,7 +12,7 @@ The code presented here allows you to display the **number or followers** of a T
   composer install
   ```
 - Create your Twitch app and get its `Client ID` and `Client Secret`: https://dev.twitch.tv/console/apps/.
-- Get the `Account Id` that you want to display, for instance with https://www.streamweasels.com/tools/convert-twitch-username-to-user-id/
+- Get the `Account Id` that you want to display. You can easily get it with a tool like: https://www.streamweasels.com/tools/convert-twitch-username-to-user-id/
 - Complete your `twitch.php` with previous values, and expose it under your own url "http://twitchcounter.mybusiness.com/twitch.php". 
 - In https://my.smiirl.com:
     - Go to the Settings of your counter
