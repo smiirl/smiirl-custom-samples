@@ -1,7 +1,7 @@
 # Display your Twitch subscriber count 😎
 
 ![178400762_199577778445617_1384783600845623641_n](https://user-images.githubusercontent.com/9904720/168776822-a94a752b-dcef-432d-a9f1-dcd49a8f3031.jpg)
-<div style="text-align:center"><img src="https://user-images.githubusercontent.com/9904720/168776822-a94a752b-dcef-432d-a9f1-dcd49a8f3031.jpg" width="300"/></div>
+<p style="text-align:center"><img src="https://user-images.githubusercontent.com/9904720/168776822-a94a752b-dcef-432d-a9f1-dcd49a8f3031.jpg" width="300" align="center"/></p>
 
 
 A Smiirl Custom Counter connected to Twitch is a must-have tool for any Twitch streamer! 
